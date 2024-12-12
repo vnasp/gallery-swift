@@ -48,14 +48,14 @@ struct MainView: View {
                 
                 HStack(alignment: .top, spacing: 10) {
                     VStack(spacing: 30) {
-                        ForEach(photoItems.filter { $0 % 2 == 0 }, id: \.self) { index in
-                            CardPhoto(index: index, height: CGFloat.random(in: 100...300))
+                        ForEach(imageData.indices.filter { $0 % 2 == 0 }, id: \.self) { index in
+                            CardPhoto(imageData: imageData[index], height: CGFloat.random(in: 100...300))
                         }
                     }
                     
                     VStack(spacing: 30) {
-                        ForEach(photoItems.filter { $0 % 2 != 0 }, id: \.self) { index in
-                            CardPhoto(index: index, height: CGFloat.random(in: 100...300))
+                        ForEach(imageData.indices.filter { $0 % 2 != 0 }, id: \.self) { index in
+                            CardPhoto(imageData: imageData[index], height: CGFloat.random(in: 100...300))
                         }
                     }
                 }
@@ -85,7 +85,7 @@ struct MainView: View {
                         InfoAppView()
                             .presentationDragIndicator(.visible)
                             .presentationDetents([.medium, .large])
-                            
+                        
                     }
                 }
             }

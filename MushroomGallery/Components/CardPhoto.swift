@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct CardPhoto: View {
-    let index: Int
+    let imageData: ImageData
     let height: CGFloat
-    
+
     var body: some View {
         VStack(spacing: 5) {
-            Image("img-gallery-\(index)")
+            Image(imageData.image)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 180, height: height)
                 .cornerRadius(20)
-            
-            Text("Fotografía \(index)".uppercased())
+
+            Text(imageData.title.uppercased())
                 .font(.caption)
                 .fontWeight(.bold)
                 .padding(.horizontal, 20)
                 .foregroundColor(Color("ColorPurpleLight"))
-            
-            Text("Descripción de la fotografía \(index).")
+
+            Text(imageData.description)
                 .font(.caption2)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
@@ -34,7 +34,7 @@ struct CardPhoto: View {
     }
 }
 
-
 #Preview {
-        CardPhoto(index: 2, height: 150)
+    let imageData = ImageData(image: "img-gallery-1", title: "Título 1", description: "Descripción 1")
+    CardPhoto(imageData: imageData, height: 150)
 }
