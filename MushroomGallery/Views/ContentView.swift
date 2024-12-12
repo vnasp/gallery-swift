@@ -9,16 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // Para persistir el nombre de usuario
     @AppStorage("userName") var userName: String = ""
     
     var body: some View {
-        ZStack {
             if userName.isEmpty {
                 OnBoardingView()
             } else {
                 MainView()
             }
-        }
     }
 }
 

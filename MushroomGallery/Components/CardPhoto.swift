@@ -16,6 +16,7 @@ struct CardPhoto: View {
             Image(imageData.image)
                 .resizable()
                 .scaledToFill()
+                .clipped()
                 .frame(width: 180, height: height)
                 .cornerRadius(20)
 

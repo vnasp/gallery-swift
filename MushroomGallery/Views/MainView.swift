@@ -14,8 +14,8 @@ struct MainView: View {
     
     @State private var isShowingSheet: Bool = false
     
-    let photoItems = Array(1...20)
-    
+    let cardHeights: [CGFloat] = imageData.indices.map { _ in CGFloat.random(in: 100...300) }
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -45,17 +45,16 @@ struct MainView: View {
                         }
                 }.padding()
                 
-                
-                HStack(alignment: .top, spacing: 10) {
-                    VStack(spacing: 30) {
+                HStack(alignment: .top, spacing: 40) {
+                    LazyVStack(spacing: 30) {
                         ForEach(imageData.indices.filter { $0 % 2 == 0 }, id: \.self) { index in
-                            CardPhoto(imageData: imageData[index], height: CGFloat.random(in: 100...300))
+                            CardPhoto(imageData: imageData[index], height: cardHeights[index])
                         }
                     }
                     
-                    VStack(spacing: 30) {
+                    LazyVStack(spacing: 30) {
                         ForEach(imageData.indices.filter { $0 % 2 != 0 }, id: \.self) { index in
-                            CardPhoto(imageData: imageData[index], height: CGFloat.random(in: 100...300))
+                            CardPhoto(imageData: imageData[index], height: cardHeights[index])
                         }
                     }
                 }

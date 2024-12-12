@@ -14,7 +14,7 @@ struct OnBoardingView: View {
     
     @State private var buttonWidth: Double = UIScreen.main.bounds.width - 80
     @State private var buttonOffset: CGFloat = 0
-    @State private var imageScale: CGFloat = 0.1
+    
     @State private var navigateToNext: Bool = false
     
     var body: some View {
@@ -25,23 +25,7 @@ struct OnBoardingView: View {
                 VStack(spacing: 20) {
                     
                     // HEADER
-                    ZStack {
-                        CircleGroupView(ShapeColor: .white, ShapeOpacity: 0.1)
-                        
-                        Image("mushroom-1")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 300, height: 300)
-                            .scaleEffect(imageScale)
-                            .onAppear {
-                                withAnimation(.easeIn(duration: 2)) {
-                                    imageScale = 1.0
-                                }
-                            }
-                    }.padding(.vertical, 40)
-                    
-                    // CONTENT
-                    TitleApp()
+                    Header()
                     
                     Text("Ingresa tu nombre o alias para entrar a la galeria.")
                         .font(.subheadline)
@@ -90,6 +74,7 @@ struct OnBoardingView: View {
                                     .padding(8)
                                 Image(systemName: nameInput.isEmpty ? "lock.fill" : "chevron.right.2")
                                     .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(nameInput.isEmpty ? .mint : .white)
                             }
                             .foregroundColor(.white)
                             .frame(width: 80, height: 80, alignment: .center)
