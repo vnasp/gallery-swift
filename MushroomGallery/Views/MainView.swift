@@ -77,7 +77,7 @@ struct MainView: View {
                     Button {
                         isShowingSheet.toggle()
                     } label: {
-                        Image(systemName: "tree.fill")
+                        Image(systemName: "info.bubble.fill")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.mint)
                     }
