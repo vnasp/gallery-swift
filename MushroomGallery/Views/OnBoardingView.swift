@@ -36,6 +36,7 @@ struct OnBoardingView: View {
                         .background(.white)
                         .cornerRadius(30)
                         .padding(.horizontal, 40)
+                        .foregroundColor(.black)
                     
                     Spacer()
                     
